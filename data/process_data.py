@@ -1,6 +1,8 @@
 import sys
 import argparse
 import os
+import pandas as pd
+from sqlalchemy import create_engine
 
 def load_data(messages_filepath, categories_filepath):
     '''
@@ -47,20 +49,18 @@ def clean_data(df):
 
 
 def save_data(df, database_filename):
-    pass  
+    '''
+    Input:
+        df (pandas.dataFrame): Cleaned Data
+        database_filename (str): database name
+    Output: None
+    '''
+    engine = create_engine('sqlite:///' + database_filename)
+    df.to_sql('messages_disaster', engine, index=False)  
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--task', default='18')#6
-    parser.add_argument('--training', default=True)
-    parser.add_argument('--dropout', default=0.1, type=float)
-    parser.add_argument('--std-alpha', default=0.003, type=float)
-    parser.add_argument('--test-split', default=0.1, type=float)
-    parser.add_argument('--epoch', default=10000, type=int)
-    parser.add_argument('--epoch_start', default=0, type=int)
-    parser.add_argument('--exp-decay-rate', default=0.99, type=float)
-    parser.add_argument('--use_cuda', default=True)
+    
     if len(sys.argv) == 4:
 
         messages_filepath, categories_filepath, database_filepath = sys.argv[1:]
