@@ -35,7 +35,7 @@ def load_data(database_filepath):
         Y (pd.dataFrame): sparse matrix of category relevance
         Y.columns (list): list of classes
     '''
-    table_name = 'disaster_messages'
+    table_name = 'messages_disaster'
     engine = create_engine(f"sqlite:///{database_filepath}")
     df = pd.read_sql_query(f'SELECT * FROM {table_name}', engine)
     X = df[list(df.columns)[1]]
