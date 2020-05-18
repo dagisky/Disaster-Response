@@ -55,6 +55,8 @@ def save_data(df, database_filename):
         database_filename (str): database name
     Output: None
     '''
+    if os.path.exists(database_filename):
+        os.remove(database_filename)
     engine = create_engine('sqlite:///' + database_filename)
     df.to_sql('messages_disaster', engine, index=False)  
 
