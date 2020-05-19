@@ -85,12 +85,12 @@ def index():
             ],
 
             'layout': {
-                'title': 'Distribution of Various Categories',
+                'title': 'Distribution of categories',
                 'yaxis': {
-                    'title': "Numbers"
+                    'title': "Count"
                 },
                 'xaxis': {
-                    'title': "Category"
+                    'title': "Categories"
                 }
             }
         }
