@@ -4,7 +4,7 @@ A machine learning pipeline to classify text messages during disaster.
 1. [Installation](###installation)
 2. [Project Motivation](###project-motivation)
 3. [File Descriptions](###file-descriptions)
-4. [Deployment] (###Deployment)
+4. [Deployment](###Deployment)
 5. [Results](###Results)
 6. [Licensing, Authors, and Acknowledgements](###licensing,-authors,-and-acknowledgements)
 
