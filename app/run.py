@@ -44,16 +44,11 @@ def index():
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
     
-    # display data distribution of the various categories
-    category = list(df.columns[4:])
-    category_counts = []
-    for column_name in category:
-        category_counts.append(np.sum(df[column_name]))
+    # display the distribution of various categories
+    categories = list(df.columns)[4:]
+    category_counts = df[list(df.columns)[4:]].sum(axis=0)    
     
-    # extract data exclude related
-    categories = df.iloc[:,4:]
-    categories_mean = categories.mean().sort_values(ascending=False)[1:11]
-    categories_names = list(categories_mean.index)
+    
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
@@ -79,7 +74,7 @@ def index():
         {
            'data': [
                 Bar(
-                    x=category,
+                    x=categories,
                     y=category_counts
                 )
             ],
