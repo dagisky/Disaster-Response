@@ -1,5 +1,5 @@
 # Disaster Response Pipeline Project
-A machine learning pipeline to classify text messages during disaster. 
+A machine learning pipeline to classify text messages from direct source or social media following a disaster. 
 ## Table of Contents
 1. [Installation](###installation)
 2. [Project Motivation](###project-motivation)
