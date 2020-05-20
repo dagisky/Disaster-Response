@@ -67,7 +67,8 @@ def tokenize(text):
 
 def build_model(grid_search=True):
     '''
-    Input: None
+    Input: 
+        grid_search (bool): implement grid search
     Output:
         cv: Grid search with RandomForestClassifier
     '''
@@ -119,14 +120,15 @@ def save_model(model, model_filepath):
     pickle.dump(model, open(model_filepath, 'wb+'))
 
 def main():
-    if len(sys.argv) == 3:
-        database_filepath, model_filepath = sys.argv[1:]
+    if len(sys.argv) == 4:
+        database_filepath, model_filepath, grid_serch = sys.argv[1:]
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))
         X, Y, category_names = load_data(database_filepath)
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
         
         print('Building model...')
-        model = build_model(False)
+        # Grid search Consumes unreasionable resorce to compile on the project workspace         
+        model = build_model(bool(grid_serch))
         
         print('Training model...')
         model.fit(X_train, Y_train)

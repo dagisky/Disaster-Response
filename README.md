@@ -30,7 +30,8 @@ the `data` directory also contains the pre processing script for the datasets. T
 1. To preprocess the data run the following command in your `data` directory.
 `python process_data.py disaster_messages.csv disaster_categories.csv DisasterResponse`
 2. To Train and save your trained model run the following in your `model` direcotry
-`python train_classifier.py ../data/DisasterResponse classifier.pkl `
+`python train_classifier.py ../data/DisasterResponse classifier.pkl <grid_search>`
+The grid_search is a boolean [True|False] parameter which decided to implement grid search of hyperparameters or not 
 3. Run the following command in the app's directory to run your web app.
     `python run.py`
 4. Go to http://0.0.0.0:3001/
